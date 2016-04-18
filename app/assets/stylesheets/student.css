@@ -22,3 +22,8 @@
 .add-student-button {
 
 }
+
+.profile-pic img {
+  width: 20%;
+  height: 20%;
+}
