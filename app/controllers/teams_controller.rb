@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
       student.update(team_id: team_id)
       if request.xhr?
         render 'students/_summary', locals: {student: student}, layout: false
+        # student.team.name
       else
         redirect_to "/students"
       end

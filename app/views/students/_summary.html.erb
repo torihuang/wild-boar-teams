@@ -1,8 +1,8 @@
 <section class='student-summary'>
   <h2><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></h2>
   <p>
-    <span>Team <%=student.team %></span>
-    <span><%=student.gpa %>/4.0</span>
+    <span class='team-name'>Team <%=student.team.name.capitalize %></span>
+    <span><%=student.gpa.round(1) %>/4.0</span>
     <span><%=student.grade %></span>
     <span><%=student.gender %></span>
     <span><%=student.number_of_detentions %></span>
