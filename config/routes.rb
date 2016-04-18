@@ -19,8 +19,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
-  get "/students" => "students#index"
+  resources :students, only: [:index, :show]
 
   put "/teams/:team_id/students/:student_id" => "teams#update"
   # Example of regular route:
