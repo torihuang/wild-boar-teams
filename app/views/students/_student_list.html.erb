@@ -1,0 +1,5 @@
+<section class='student-list'>
+<% students.each do |student| %>
+  <%= render partial: 'summary', locals: {student: student} %>
+<% end %>
+</section>
