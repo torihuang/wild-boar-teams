@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 20160418182755) do
   enable_extension "plpgsql"
 
   create_table "students", force: :cascade do |t|
+    t.integer  "team_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "gender"
     t.string   "image_path"
     t.string   "grade"
-    t.integer  "gpa"
+    t.decimal  "gpa"
     t.integer  "number_of_detentions"
     t.string   "shirt_size"
     t.string   "food_allergies"
@@ -32,7 +33,6 @@ ActiveRecord::Schema.define(version: 20160418182755) do
 
   create_table "teams", force: :cascade do |t|
     t.integer  "teacher_id"
-    t.integer  "student_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
