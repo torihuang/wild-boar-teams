@@ -9,6 +9,7 @@ class Student < ActiveRecord::Base
   validates :shirt_size, presence: true
 
   belongs_to :team
+  has_one :teacher, through: :team
 
 end
 
