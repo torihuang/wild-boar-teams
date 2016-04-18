@@ -90,7 +90,7 @@ shirt_sizes = ["x-small", "small", "medium", "large", "x-large"]
 grades = ["ninth", "tenth", "eleventh", "twelfth"]
 food_allergies = ["none", "peanuts", "gluten", "dairy"]
 
-20.times do 
+200.times do 
   Student.create!(
     team_id: rand(1..10),
     first_name: Faker::Name.first_name,
