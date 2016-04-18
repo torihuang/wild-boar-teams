@@ -1,0 +1,20 @@
+.student-summary {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+.student-summary h2 {
+  margin: 0px;
+}
+
+.student-summary span {
+  margin: 0px 30px;
+}
+
+.student-list {
+  width: 60%;
+  margin: 30px auto;
+}
