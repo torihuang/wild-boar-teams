@@ -1,10 +1,13 @@
 class SessionController < ApplicationController
 
+  skip_before_action :authorize, only: [:create, :new]
+
   def create
-    @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:sessions][:password])
+    @user = User.find_by(email: params[:session][:email])
+    if @user && @user.authenticate(params[:session][:password])
+      puts "logging in"
       log_in @user
-      redirect_to
+      redirect_to students_path
     else
       @errors = ["Invalid Credentials"]
       render 'new'
@@ -18,6 +21,14 @@ class SessionController < ApplicationController
   def destroy
     log_out
     redirect_to root_url
+  end
+
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+
+  def log_out
+    session.delete(:user_id)
   end
 
 end
