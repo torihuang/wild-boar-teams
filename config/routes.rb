@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   resources :students, only: [:index, :show]
 
+  put "/teams/:team_id/students/:student_id" => "teams#update"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

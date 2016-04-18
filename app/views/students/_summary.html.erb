@@ -6,5 +6,8 @@
     <span><%=student.grade %></span>
     <span><%=student.gender %></span>
     <span><%=student.number_of_detentions %></span>
+    <% if logged_in? && !current_user.has_student?(student) %>
+      <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/student/#{student.id}", class: 'add-student-button' %></span>
+    <% end %>
   </p>
 </section>
