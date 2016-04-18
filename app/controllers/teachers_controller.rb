@@ -1,36 +1,37 @@
-class TeacherController < ApplicationController
+class TeachersController < ApplicationController
+  before_action :authenticate!
+
   def list
     @teachers = Teacher.all
   end
 
   def show
     @teacher = Teacher.find(params[:id])
+    @students = @teacher.students
   end
 
   def new
   end
 
   def create
-    @teachers  = Teachers.new(params[:teachers ]) #create new teachers
+    @teachers  = Teachers.new(params[:teachers])
 
     if @teachers.save
       redirect_to teachers
     else
-      @errors = @teacher.errors.full_messages
       render 'create'
     end
-  end
-
   end
 
   def edit
   end
 
   def update
-  end
-
-  def delete
-
+    if @teacher.update(teacher_params)
+      redirect_to @teacher, notice: 'Your profile was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   private

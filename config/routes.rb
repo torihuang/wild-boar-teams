@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :teachers
+  resources :teachers, :except => [:delete]
 
-  
+
   # get '/teachers' => 'teachers#index',
   # get '/teachers/new' => 'teachers#new'
   # post '/teachers' => 'teachers#create'
