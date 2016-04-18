@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user1 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -15,7 +15,7 @@ user1 = User.create!(
 
 user2 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -23,7 +23,7 @@ user2 = User.create!(
 
 user3 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -31,7 +31,7 @@ user3 = User.create!(
 
 user4 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -39,7 +39,7 @@ user4 = User.create!(
 
 user5 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -47,7 +47,7 @@ user5 = User.create!(
 
 user6 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -55,7 +55,7 @@ user6 = User.create!(
 
 user7 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -63,7 +63,7 @@ user7 = User.create!(
 
 user8 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -71,7 +71,7 @@ user8 = User.create!(
 
 user9 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
@@ -79,7 +79,7 @@ user9 = User.create!(
 
 user10 = User.create!(
     email: Faker::Internet.email,
-    encrypted_password: "password",
+    password: "password",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     image_path: Faker::Avatar.image
