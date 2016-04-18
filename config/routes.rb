@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/students" => "students#index"
 
+  put "/teams/:team_id/students/:student_id" => "teams#update"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
