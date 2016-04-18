@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
+  root "session#new"
+
   resources :teachers, :except => [:delete]
 
+  resources :session, only: [:new, :create]
+    delete 'logout' => 'session#destroy'
 
-  # get '/teachers' => 'teachers#index',
-  # get '/teachers/new' => 'teachers#new'
-  # post '/teachers' => 'teachers#create'
-  # get '/teachers/:id' => 'teachers#show'
-  # get '/teachers/edit' => 'teachers#edit'
-  # patch '/teacher/:id' => 'teachers#update'
-  # delete '/teachers/:id' => 'teachers#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -19,6 +16,7 @@ Rails.application.routes.draw do
 
   get "/students" => "students#index"
 
+  put "/teams/:team_id/students/:student_id" => "teams#update"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+  <%= image_tag "boar.png" %>
+  <h1>Wild Boar High School</h1>
+  <h2>Clever App Name Here</h2>
+  <% if logged_in? %>
+    <%= link_to 'Log Out', logout_path, method: :delete %>
+  <%end %>
+</header>
 <%= yield %>
 
 </body>
