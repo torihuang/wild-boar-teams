@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # before_action :authenticate!
 
   def index
+    puts "IN THE INDEX"
     @users = User.all
   end
 
@@ -15,19 +16,21 @@ class UsersController < ApplicationController
   end
 
   def create
-    @users  = User.new(params[:teachers])
+    @user  = User.new(params[:teachers])
 
-    if @users.save
-      redirect_to teachers
+    if @user.save
+      redirect_to users
     else
-      render 'create'
+      render :new
     end
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'Your profile was successfully updated.'
     else
@@ -37,6 +40,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:teacher).permit(:first_name, :last_name, :password, :image_route, :email)
+      params.require(:user).permit(:first_name, :last_name, :password, :image_route, :email)
     end
 end
