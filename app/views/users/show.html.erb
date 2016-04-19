@@ -6,7 +6,9 @@
   <p>
     <span>Email: <%= @user.email %></span><br>
     <span>Average GPA: <%= @user.team.average_gpa %></span><br>
-    <span>Total Number of Detentions: <%= @user.team.number_of_detentions %></span>
+    <span>Total Number of Detentions: <%= @user.team.number_of_detentions %></span><br>
+    <span>Average Number of Detentions: <%= @user.team.average_detentions %></span><br>
+    <span>Current gender diversity: <%= @user.team.current_gender_diversity %></span>
   </p>
 
   <h1><%= @user.first_name %>'s Students</h1>
