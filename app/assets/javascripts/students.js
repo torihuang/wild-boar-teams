@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $('.student-list').on('click', '.add-student-button', function(e) {
+
+  $('.student-master-list').on('click', '.add-student-button', function(e) {
     e.preventDefault();
     console.log("HERE")
     var $this = $(this);
@@ -16,5 +17,6 @@ $(document).ready(function() {
       $this.parent().parent().parent().replaceWith(response);
       alert(name + " was added to your team!");
     })
-  })
+  });
+
 })
