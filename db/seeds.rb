@@ -92,13 +92,13 @@ user10 = User.create!(
     )
 
 genders = ["male", "female", "other", "none"]
-shirt_sizes = ["x-small", "small", "medium", "large", "x-large"]
-grades = ["ninth", "tenth", "eleventh", "twelfth"]
-food_allergies = ["none", "peanuts", "gluten", "dairy"]
+shirt_sizes = ["x-small", "small", "medium", "large", "x-large",]
+grades = ["Grade 9", "Grade 10", "Grade 11", "Grade 12"]
+food_allergies = ["none", "peanuts", "gluten", "dairy", "pork", "the forbidden fruit"]
 
 200.times do
   Student.create!(
-    team_id: rand(1..10),
+    team_id: rand(0..10),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     gender: genders.sample,

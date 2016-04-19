@@ -15,7 +15,7 @@ class Student < ActiveRecord::Base
   require 'CSV'
 
   def is_assigned?
-    self.team_id != nil
+    self.team_id != 0
   end
 
   def full_name=(name)

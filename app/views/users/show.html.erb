@@ -1,13 +1,14 @@
 <div id='teacher-show-page'>
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-  <img src="<%= @user.image_path %>" alt="Profile Pic" />
-  <% if is_admin? %>
-  <%= render partial: '/users/admin', locals: {user: @user} %>
-  <% end %>
 
-  <% if !is_admin? %>
-  <%= render partial: '/users/stats', locals: {user: @user} %>
+  <% if @user.is_admin? %>
+  <% puts "I do this" %>
+  <%= render partial: '/users/admin', locals: {user: @user} %>
+  <% else %>
+  <% puts "I also do this!" %>
+    <img src="<%= @user.image_path %>" alt="Profile Pic" />
+    <%= render partial: '/users/stats', locals: {user: @user} %>
   <% end %>
 
 </div>
