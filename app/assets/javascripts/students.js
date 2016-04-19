@@ -11,7 +11,9 @@ $(document).ready(function() {
       url: "/teams/" + teamId + "/students/" + studentId
     })
     .done(function(response) {
-      $this.remove();
+      console.log(response)
+      // $this.parent().find('.team-name').text('Team ' + response)
+      $this.parent().parent().parent().replaceWith(response);
     })
   })
 })
