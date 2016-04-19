@@ -5,6 +5,7 @@
 # render
 
 class StudentsController < ApplicationController
+require 'bigdecimal'
 
   def index
     @students = Student.all
@@ -12,5 +13,15 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+  end
+
+  def import
+    # Student.import(params[:file])
+    # redirect_to '/students'
+  end
+
+  def upload
+    Student.upload(params[:file])
+    redirect_to '/'
   end
 end
