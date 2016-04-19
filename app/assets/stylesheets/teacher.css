@@ -1,0 +1,24 @@
+.user-summary {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+.user-summary h2 {
+  margin: 0px;
+}
+
+.user-summary span {
+  margin: 0px 30px;
+}
+
+.user-list {
+  width: 60%;
+  margin: 30px auto;
+}
+
+.add-user-button {
+
+}
