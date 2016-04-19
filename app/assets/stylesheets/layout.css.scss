@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'scream';
+  src: font-url('hs.ttf');
+}
+
 body {
   margin: 0;
 }
@@ -10,6 +15,7 @@ header {
   color: #000;
   border-bottom: 5px double #39FF14;
   overflow: auto;
+  font-family: 'scream';
 }
 
 .mascot {

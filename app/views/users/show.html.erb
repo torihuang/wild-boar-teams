@@ -1,7 +1,7 @@
 <div id='teacher-show-page'>
 
   <% if current_user.id == @user.id %>
-    <p><%= link_to "Edit Profile", edit_user_path %></p>
+    <p><%= link_to "Edit Profile", edit_user_path, class: 'edit-teacher-profile btn btn-success' %></p>
   <%end%>
 
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
