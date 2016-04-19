@@ -39,6 +39,7 @@ gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'capybara'
 
 
+# gem 'bootstrap', '~> 4.0.0.alpha3'
   gem 'bootstrap-sass', '~> 3.2.0'
   gem 'autoprefixer-rails'
 

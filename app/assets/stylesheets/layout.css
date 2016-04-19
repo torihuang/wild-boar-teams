@@ -9,22 +9,66 @@ header {
   background-color: #FC8EAC;
   color: #000;
   border-bottom: 5px double #39FF14;
+  overflow: auto;
 }
 
-header h1 {
-  text-align: center;
-}
-
-header h2 {
-  text-align: center;
-}
-
-header img {
+.mascot {
+  float: left;
   display: inline;
   width: 125px;
   height: 125px;
-  float: left;
   margin-left: 20px;
   margin-top: 5px;
+}
 
+#titles {
+  margin-left: 20px;
+  float: left;
+  width: 550px;
+}
+
+header h1 a {
+  margin-left: -175px;
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+
+header h2 a {
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+
+header h1 a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+header h2 a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  margin-top: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.nav-button {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.nav-button:hover {
+  text-decoration: none;
+  color: #21671e;
+}
+
+form {
+  text-align: center;
+  margin: 30px auto;
 }

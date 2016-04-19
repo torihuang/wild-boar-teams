@@ -1,16 +1,18 @@
-<h1><%= @student.first_name %> <%= @student.last_name %></h1>
-<div class="profile-pic">
-  <%= image_tag "default.png" %>
-</div>
-<ul>
-  <li>Currently on Team <%= @student.team.name.capitalize%></li>
-  <li>Assigned Teacher: <%= @student.teacher.first_name %> <%= @student.teacher.last_name %></li>
-  <li>Gender: <%= @student.gender %></li>
-  <li>Grade: <%= @student.grade %></li>
-  <li>GPA: <%= @student.gpa %></li>
-  <li>Detentions Served: <%= @student.number_of_detentions %></li>
-  <li>Shirt Size: <%= @student.shirt_size.capitalize %></li>
-  <li>Food Allergies: <%= @student.food_allergies %></li>
-</ul>
+<div id='student-show-page'>
+  <h1><%= @student.first_name %> <%= @student.last_name %></h1>
+  <div class="profile-pic">
+    <%= image_tag "default.png" %>
+  </div>
+  <ul class=''>
+    <li>Currently on Team <%= @student.team.name.capitalize%></li>
+    <li>Assigned Teacher: <%= @student.teacher.first_name %> <%= @student.teacher.last_name %></li>
+    <li>Gender: <%= @student.gender %></li>
+    <li>Grade: <%= @student.grade %></li>
+    <li>GPA: <%= @student.gpa %></li>
+    <li>Detentions Served: <%= @student.number_of_detentions %></li>
+    <li>Shirt Size: <%= @student.shirt_size.capitalize %></li>
+    <li>Food Allergies: <%= @student.food_allergies %></li>
+  </ul>
 
-<%= link_to 'Back to Students', students_path %>
+  <%= link_to 'Back to Students', students_path, class: 'btn btn-success' %>
+</div>

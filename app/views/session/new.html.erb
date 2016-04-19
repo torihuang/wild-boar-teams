@@ -5,17 +5,17 @@
 <% end %>
 
 <%= form_for :session, url: session_index_path do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :email %><br>
     <%= f.email_field :email, placeholder: "email@wbhs@.edu" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
-  </p>
+  </div>
 
   <p>
-    <%= f.submit "Log In" %>
+    <%= f.submit "Log In", class: "btn btn-default" %>
   </p>
 <% end %>

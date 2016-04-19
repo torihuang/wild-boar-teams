@@ -1,15 +1,19 @@
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<div id='teacher-show-page'>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
- <img src="<%= @user.image_path %>" alt="rss feed" />
+   <img src="<%= @user.image_path %>" alt="rss feed" />
 
-<p>
-  <span>Email: <%= @user.email %></span>
-</p>
+  <p>
+    <span>Email: <%= @user.email %></span><br>
+    <span>Average GPA: <%= @user.team.average_gpa %></span><br>
+    <span>Total Number of Detentions: <%= @user.team.number_of_detentions %></span>
+  </p>
 
-<h1>Students</h1>
+  <h1><%= @user.first_name %>'s Students</h1>
 
-<section class='student-list'>
-<% @students.each do |student| %>
-  <%= render partial: '/students/summary', locals: {student: student} %>
-<% end %>
-</section>
+  <section class='student-list'>
+    <% @students.each do |student| %>
+      <%= render partial: '/students/summary', locals: {student: student} %>
+    <% end %>
+  </section>
+</div>

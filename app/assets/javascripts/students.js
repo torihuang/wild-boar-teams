@@ -1,6 +1,7 @@
 $(document).ready(function() {
-  $('#student-master-list').on('click', '.add-student-button', function(e) {
+  $('.student-list').on('click', '.add-student-button', function(e) {
     e.preventDefault();
+    console.log("HERE")
     var $this = $(this);
     var splitURL = $this.attr('href').split('/');
     var teamId = splitURL[1];
@@ -11,8 +12,9 @@ $(document).ready(function() {
       url: "/teams/" + teamId + "/students/" + studentId
     })
     .done(function(response) {
-      console.log(response)
+      var name = $('#student-name').text();
       $this.parent().parent().parent().replaceWith(response);
+      alert(name + " was added to your team!");
     })
   })
 })
