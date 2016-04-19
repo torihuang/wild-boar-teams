@@ -12,7 +12,6 @@ $(document).ready(function() {
     })
     .done(function(response) {
       console.log(response)
-      // $this.parent().find('.team-name').text('Team ' + response)
       $this.parent().parent().parent().replaceWith(response);
     })
   })
