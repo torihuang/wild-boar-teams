@@ -7,6 +7,7 @@ class Student < ActiveRecord::Base
   validates :gpa, presence: true
   validates :number_of_detentions, presence: true
   validates :shirt_size, presence: true
+  validates :food_allergies, presence: true
 
   belongs_to :team
   has_one :teacher, through: :team

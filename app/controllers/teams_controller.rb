@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   def update
+    # p "hello world"
     team_id = params[:team_id]
     student_id = params[:student_id]
     team = Team.find_by(id: team_id)
