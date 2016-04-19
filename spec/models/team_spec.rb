@@ -1,12 +1,12 @@
-require 'rails helper'
+require 'rails_helper'
 
 describe Team do
   let(:user){ User.new(
-    email: "test@something.com", 
+    email: "test@something.com",
     password: "password",
     first_name: "test",
     last_name: "user",
-    image_path: Faker::Avatar.image 
+    image_path: Faker::Avatar.image
     )}
 
   before do
@@ -23,13 +23,13 @@ describe Team do
 
   describe "assocations" do
     describe "teacher association" do
-      it "has a teacher" do 
+      it "has a teacher" do
         expect(@team.teacher).to be(user)
       end
     end
 
     describe "student association" do
-      before do 
+      before do
         amy = Student.create!(
           team_id: team.id,
           first_name: "Amy",
@@ -64,5 +64,5 @@ describe Team do
         expect(@team.students.count).to equal(2)
       end
     end
-  end  
+  end
 end
