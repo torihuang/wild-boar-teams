@@ -3,18 +3,26 @@
 <head>
   <title>WildBoarTeams</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="main-container" class="container">
   <header>
-    <%= image_tag "boar.png" %>
-    <h1>Wild Boar High School</h1>
-    <h2>Clever App Name Here</h2>
+    <%= image_tag "boar.png", class: 'mascot' %>
+    <div id='titles'>
+      <h1><%= link_to 'Wild Boar High School', students_path %></h1>
+      <h2><%= link_to 'Clever App Name Here', students_path %></h2>
+    </div>
+    <nav>
     <% if logged_in? %>
-      <%= link_to 'Log Out', logout_path, method: :delete %>
+      <%= link_to "#{current_user.first_name} #{current_user.last_name}", current_user, class: 'nav-button' %>
+      <%= link_to "Teacher Directory", users_path, class: 'nav-button' %>
+      <%= link_to 'Log Out', logout_path, method: :delete, class: 'nav-button' %>
     <%end %>
+    </nav>
   </header>
   <%= yield %>
 </div>

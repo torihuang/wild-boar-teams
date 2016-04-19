@@ -1,5 +1,5 @@
 <section class='student-summary'>
-  <h2><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></h2>
+  <h2 id='student-name'><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></h2>
   <p>
     <span class='team-name'>Team <%=student.team.name.capitalize %></span>
     <span><%=student.gpa.round(1) %>/4.0</span>
@@ -7,7 +7,7 @@
     <span><%=student.gender %></span>
     <span><%=student.number_of_detentions %></span>
     <% if logged_in? && !current_user.has_student?(student) %>
-      <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/student/#{student.id}", class: 'add-student-button btn btn-success' %></span>
+      <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/students/#{student.id}", class: 'add-student-button btn btn-success' %></span>
     <% end %>
   </p>
 </section>

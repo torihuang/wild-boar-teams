@@ -4,7 +4,7 @@
   <section class='user-list'>
     <% @users.each do |user| %>
     <section class='user-summary'>
-      <h2><%= user.first_name %> <%= user.last_name %></h2>
+      <h2><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></h2>
       <p>
         <span><%= user.email %></span>
       </p>

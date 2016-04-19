@@ -27,3 +27,19 @@
   width: 20%;
   height: 20%;
 }
+
+h1 {
+  text-align: center;
+}
+
+#student-show-page {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  margin-left: -40px;
+}
