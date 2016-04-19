@@ -1,0 +1,14 @@
+<h1>Teachers</h1>
+
+<section id='user-master-list'>
+  <section class='user-list'>
+    <% @users.each do |user| %>
+    <section class='user-summary'>
+      <h2><%= user.first_name %> <%= user.last_name %></h2>
+      <p>
+        <span><%= user.email %></span>
+      </p>
+    </section>
+    <% end %>
+  </section>
+</section>
