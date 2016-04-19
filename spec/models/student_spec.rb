@@ -1,7 +1,7 @@
-require 'rails helper'
+require 'rails_helper'
 
 describe Student do
-  let(:student) = Student.new(
+  let(:student) { Student.new(
     team_id: 1,
     first_name: "Amy",
     last_name: "Student",
@@ -12,30 +12,31 @@ describe Student do
     number_of_detentions: 5,
     shirt_size: "medium",
     food_allergies: "peanuts"
-    )
+    ) }
 
   before do
     student.save
   end
 
-  describe "student creation" do
-    it "creates a Student object" do
-      expect(student).to have_attributes(
-        team_id: 1,
-        first_name: "Amy",
-        last_name: "Student",
-        gender: "female",
-        image_path: Faker::Avatar.image,
-        grade: "ninth",
-        gpa: 3.5,
-        number_of_detentions: 5,
-        shirt_size: "medium",
-        food_allergies: "peanuts")
+  describe "create" do
+    it "makes a Student object" do
+      student_1 = Student.new
+      expect(student_1).to have_attributes(
+        team_id: nil,
+        first_name: nil,
+        last_name: nil,
+        gender: nil,
+        image_path: nil,
+        grade: nil,
+        gpa: nil,
+        number_of_detentions: nil,
+        shirt_size: nil,
+        food_allergies: nil)
     end
 
     describe "validations" do
       it "raises an error for a missing team id" do
-        student_incomplete = Student.create!(            
+        student_incomplete = Student.new(
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
@@ -46,12 +47,12 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing first name" do
-        student_incomplete = Student.create!(  
-          team_id: 1,          
+        student_incomplete = Student.new(
+          team_id: 1,
           last_name: "Student",
           gender: "female",
           image_path: Faker::Avatar.image,
@@ -61,11 +62,11 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing last name" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           gender: "female",
@@ -76,11 +77,11 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing gender" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
@@ -91,11 +92,11 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing grade" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
@@ -106,11 +107,11 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing GPA" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
@@ -121,11 +122,11 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing number of detentions" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
@@ -136,11 +137,11 @@ describe Student do
           shirt_size: "medium",
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing shirt size" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
@@ -151,11 +152,11 @@ describe Student do
           number_of_detentions: 5,
           food_allergies: "peanuts")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
 
       it "raises an error for a missing food allergies" do
-        student_incomplete = Student.create!(  
+        student_incomplete = Student.new(
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
@@ -166,7 +167,7 @@ describe Student do
           number_of_detentions: 5,
           shirt_size: "medium")
         # can make this specific by 'raise_error.with_message("whatever")'
-        expect{ student_incomplete.save }.to raise_error
+        expect(student_incomplete).to be_invalid
       end
     end
   end
@@ -174,11 +175,11 @@ describe Student do
   describe "assocations" do
     before do
       user = User.new(
-        email: "test@something.com", 
+        email: "test@something.com",
         password: "password",
         first_name: "test",
         last_name: "user",
-        image_path: Faker::Avatar.image 
+        image_path: Faker::Avatar.image
       )
       user.save
       team = user.build_team(name: "chartreuse")
@@ -186,7 +187,7 @@ describe Student do
     end
 
     describe "team associations" do
-      it "has a team" do 
+      it "has a team" do
         expect(student.team).to have_attributes(name: "chartreuse")
       end
 
@@ -203,5 +204,5 @@ describe Student do
         expect(student.teach).to be(user)
       end
     end
-  end  
+  end
 end
