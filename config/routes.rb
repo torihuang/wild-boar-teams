@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :students, only: [:index, :show]
 
-  put "/teams/:team_id/students/:student_id" => "teams#update"
+  put "/teams/:team_id/students/:student_id" => "teams#update", as: "teams"
 end
