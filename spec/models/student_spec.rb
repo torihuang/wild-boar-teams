@@ -61,7 +61,6 @@ describe Student do
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -76,7 +75,6 @@ describe Student do
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -91,7 +89,6 @@ describe Student do
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -106,7 +103,6 @@ describe Student do
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -121,7 +117,6 @@ describe Student do
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -136,7 +131,6 @@ describe Student do
           gpa: 3.5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -151,7 +145,6 @@ describe Student do
           gpa: 3.5,
           number_of_detentions: 5,
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -166,7 +159,6 @@ describe Student do
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
     end
@@ -174,20 +166,21 @@ describe Student do
 
   describe "assocations" do
     before do
-      user = User.new(
+      @user = User.new(
         email: "test@something.com",
         password: "password",
         first_name: "test",
         last_name: "user",
         image_path: image 
       )
-      user.save
-      team = user.build_team(name: "chartreuse")
-      team.save
+      
     end
 
     describe "team associations" do
       it "has a team" do
+        @user.save
+        team = user.build_team(name: "chartreuse")
+        team.save
         expect(student.team).to have_attributes(name: "chartreuse")
       end
 
