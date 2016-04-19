@@ -5,8 +5,6 @@ class TeamsController < ApplicationController
     team = Team.find_by(id: team_id)
     student = Student.find_by(id: student_id)
     if team && student
-      puts "=================================="
-      puts "UPDATING STUDENT"
       student.update(team_id: team_id)
       if request.xhr?
         render 'students/_summary', locals: {student: student}, layout: false
