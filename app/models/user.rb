@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def has_student?(student)
     self.students.include?(student)
   end
+
+  def is_admin?
+    self.role == "admin"
+  end
 end
