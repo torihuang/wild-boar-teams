@@ -1,4 +1,4 @@
-require 'rails helper'
+require 'rails_helper'
 
 describe Team do
   let(:user){ User.new(
