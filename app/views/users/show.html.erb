@@ -1,4 +1,9 @@
 <div id='teacher-show-page'>
+
+  <% if current_user.id == @user.id %>
+    <p><%= link_to "Edit Profile", edit_user_path %></p>
+  <%end%>
+
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
    <img src="<%= @user.image_path %>" alt="rss feed" />
