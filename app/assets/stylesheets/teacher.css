@@ -4,6 +4,7 @@
   margin-top: 10px;
   padding: 5px;
   text-align: center;
+  background-color: #9FEA9F;
 }
 
 .user-summary h2 {
@@ -25,4 +26,8 @@
 
 #teacher-show-page {
   text-align: center;
+}
+
+.edit-teacher-profile {
+  margin-top: 30px;
 }

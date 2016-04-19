@@ -1,0 +1,14 @@
+  <p>
+    <span>Email: <%= @user.email %></span><br>
+    <span>Average GPA: <%= @user.team.average_gpa %></span><br>
+    <span>Total Number of Detentions: <%= @user.team.number_of_detentions %></span><br>
+    <span>Average Number of Detentions: <%= @user.team.average_detentions %></span>
+  </p>
+
+  <h1><%= @user.first_name %>'s Students</h1>
+
+  <section class='student-list'>
+    <% @students.each do |student| %>
+      <%= render partial: '/students/summary', locals: {student: student} %>
+    <% end %>
+  </section>
