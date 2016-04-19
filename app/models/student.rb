@@ -11,5 +11,9 @@ class Student < ActiveRecord::Base
   belongs_to :team
   has_one :teacher, through: :team
 
+  def is_assigned?
+    self.team_id != nil
+  end
+
 end
 
