@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 describe Student do
+  image = Faker::Avatar.image
   let(:student) { Student.new(
     team_id: 1,
     first_name: "Amy",
     last_name: "Student",
     gender: "female",
-    image_path: Faker::Avatar.image,
+    image_path: image,
     grade: "ninth",
     gpa: 3.5,
     number_of_detentions: 5,
@@ -40,13 +41,12 @@ describe Student do
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -55,13 +55,12 @@ describe Student do
           team_id: 1,
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -70,13 +69,12 @@ describe Student do
           team_id: 1,
           first_name: "Amy",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -85,13 +83,12 @@ describe Student do
           team_id: 1,
           first_name: "Amy",
           last_name: "Student",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -101,12 +98,11 @@ describe Student do
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -116,12 +112,11 @@ describe Student do
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           number_of_detentions: 5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -131,12 +126,11 @@ describe Student do
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           shirt_size: "medium",
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -146,12 +140,11 @@ describe Student do
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           number_of_detentions: 5,
           food_allergies: "peanuts")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
 
@@ -161,12 +154,11 @@ describe Student do
           first_name: "Amy",
           last_name: "Student",
           gender: "female",
-          image_path: Faker::Avatar.image,
+          image_path: image,
           grade: "ninth",
           gpa: 3.5,
           number_of_detentions: 5,
           shirt_size: "medium")
-        # can make this specific by 'raise_error.with_message("whatever")'
         expect(student_incomplete).to be_invalid
       end
     end
@@ -174,20 +166,21 @@ describe Student do
 
   describe "assocations" do
     before do
-      user = User.new(
+      @user = User.new(
         email: "test@something.com",
         password: "password",
         first_name: "test",
         last_name: "user",
-        image_path: Faker::Avatar.image
+        image_path: image 
       )
-      user.save
-      team = user.build_team(name: "chartreuse")
-      team.save
+      
     end
 
     describe "team associations" do
       it "has a team" do
+        @user.save
+        team = user.build_team(name: "chartreuse")
+        team.save
         expect(student.team).to have_attributes(name: "chartreuse")
       end
 
