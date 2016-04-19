@@ -14,6 +14,10 @@ class Student < ActiveRecord::Base
 
   require 'CSV'
 
+  def is_assigned?
+    self.team_id != 0
+  end
+
   def full_name=(name)
     self.first_name = name.split(' ')[0]
     self.last_name = name.split(' ')[1]
