@@ -12,7 +12,7 @@ $(document).ready(function() {
       url: "/teams/" + teamId + "/students/" + studentId
     })
     .done(function(response) {
-      var name = $('#student-name').text();
+      var name = $this.parent().parent().parent().find('#student-name').text();
       $this.parent().parent().parent().replaceWith(response);
       alert(name + " was added to your team!");
     })
