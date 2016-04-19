@@ -1,2 +1,22 @@
-<h1>ADMIN</h1>
 <%= image_tag "boss_boar.png" %>
+
+<h2>Create a Master Password for new teachers</h2>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :image_path %><br>
+    <%= f.text_field :image_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
