@@ -43,15 +43,21 @@
 }
 
 .team-name {
-  width: 22%;
+  width: 40%;
 }
 
 .student-info {
-  width: 12%;
+  width: 15%;
 }
 
-.center-button {
-  text-align: center;
+.table-center {
+  margin: 0 auto;
+}
+
+.ineligibility {
+  width: max;
+  margin: 0 auto;
+  display: none;
 }
 .add-student-button {
 
