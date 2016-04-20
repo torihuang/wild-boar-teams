@@ -1,5 +1,26 @@
 $(document).ready(function() {
 
+  if(window.location.pathname == '/') {
+    $('header').toggle();
+    $('body').addClass('welcome');
+  }
+
+  $('#login-button').on('click', function(e) {
+    e.preventDefault();
+    $this = $(this);
+    $.ajax({
+      method: 'GET',
+      url: '/session/new'
+    })
+    .done(function(response) {
+      if ($this.parent().find('#login-form').length > 0) {
+        $('#login-form').remove();
+      } else {
+        $this.after(response);
+      }
+    })
+  })
+
   $('.add-student-button').on('click', function(e) {
     e.preventDefault();
     console.log("HERE")
