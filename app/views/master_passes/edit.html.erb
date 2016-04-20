@@ -1,13 +1,10 @@
 <%= form_for :master_pass, url: master_pass_path, method: :patch do |f| %>
   <% if @errors %>
     <div id="error_explanation">
-      <h2><%= pluralize(@errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @errors.each do |message| %>
+        <p><%= message %></p>
       <% end %>
-      </ul>
+
     </div>
   <% end %>
 

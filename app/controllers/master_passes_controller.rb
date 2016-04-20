@@ -5,14 +5,21 @@ class MasterPassesController < ApplicationController
   end
 
   def update
-    @user = User.find_by(params[:id])
-    @pass = MasterPass.find_by(password: params[:master_pass][:old_password])
-    @pass.password = params[:master_pass][:password]
-    @pass.password_confirmation = params[:master_pass][:confirm_password]
-    if @pass.save
-      @pass.update(password: params[:master_pass][:password])
+    @user = User.find_by(role: "admin")
+    @original_pass = MasterPass.first
+    if @original_pass.authenticate(params[:master_pass][:old_password])
+      @new_pass = MasterPass.new(password: params[:master_pass][:password], password_confirmation: 'nomatch')
+      @new_pass.password_confirmation = (params[:master_pass][:confirm_password])
+      if @new_pass.save
+        @original_pass.update(password: params[:master_pass][:password])
+        @new_pass.destroy
+        redirect_to @user
+      else
+        @errors = @new_pass.errors.full_messages
+        render 'edit'
+      end
     else
-      @errors = @pass.errors
+      @errors = ["Invalid Master Password"]
       render 'edit'
     end
   end
