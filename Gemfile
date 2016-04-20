@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 
+gem 'jquery-ui-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -7,8 +7,8 @@
 
   <h1><%= @user.first_name %>'s Students</h1>
 
-  <section class='student-list'>
+  <section class='student-master-list'>
     <% @students.each do |student| %>
-      <%= render partial: '/students/summary', locals: {student: student} %>
+      <%= render partial: 'students/summary', locals: {student: student} %>
     <% end %>
   </section>
