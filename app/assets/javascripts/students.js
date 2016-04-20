@@ -20,9 +20,11 @@ $(document).ready(function() {
       }
     })
     .fail(function(jqxhr, status, errorThrown) {
+
       console.log("")
       $('#login-form').remove();
       $this.after(jqxhr.responseText);
+
     })
   })
 
