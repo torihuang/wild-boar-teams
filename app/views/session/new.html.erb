@@ -1,21 +1,7 @@
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <p> <%= error %></p>
-  <% end %>
-<% end %>
-
-<%= form_for :session, url: session_index_path do |f| %>
-  <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.email_field :email, placeholder: "email@wbhs.edu" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-
-  <p>
-    <%= f.submit "Log In", class: "btn btn-default" %>
-  </p>
-<% end %>
+<section id='welcome-container'>
+  <h1>Welcome to Wild Boar High School</h1>
+  <section id='welcome-buttons'>
+    <%= link_to 'Login', "session/new", class: 'welcome-button btn btn-info btn-lg btn-block', id: 'login-button' %>
+    <%= link_to 'Register', "users/new", class: 'welcome-button btn btn-info btn-lg btn-block', id: 'register-button' %>
+  </section>
+</section>

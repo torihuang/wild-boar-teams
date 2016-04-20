@@ -7,6 +7,28 @@
   background-color: #9FEA9F;
 }
 
+#welcome-container {
+  /*border: 1px solid black;*/
+  border-radius: 20px;
+  min-height: 400px;
+  width: 1000px;
+  margin: 200px auto;
+  background-color: rgba(255,255,255,0.6);
+  padding: 50px;
+  text-align: center;
+  overflow: auto;
+}
+
+#welcome-buttons {
+  margin-top: 50px;
+  /*border: 1px solid black;*/
+  /*padding: 30px;*/
+}
+
+#welcome-buttons a {
+  margin-top: 50px;
+}
+
 .student-summary h2 {
   margin: 0px;
 }
