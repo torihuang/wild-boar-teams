@@ -103,7 +103,7 @@ food_allergies = ["none", "peanuts", "gluten", "dairy", "pork", "the forbidden f
     last_name: Faker::Name.last_name,
     gender: genders.sample,
     grade: grades.sample,
-    gpa: rand(0.0..4.0),
+    gpa: rand(1.5..4.0),
     number_of_detentions: rand(0..20),
     shirt_size: shirt_sizes.sample,
     food_allergies: food_allergies.sample
