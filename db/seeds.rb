@@ -91,7 +91,7 @@ user10 = User.create!(
     image_path: Faker::Avatar.image
     )
 
-genders = ["male", "female", "other", "none"]
+genders = ["male", "male", "male", "male", "male", "male", "male", "male", "male", "female", "other", "none"]
 shirt_sizes = ["x-small", "small", "medium", "large", "x-large",]
 grades = ["Grade 9", "Grade 10", "Grade 11", "Grade 12"]
 food_allergies = ["none", "peanuts", "gluten", "dairy", "pork", "the forbidden fruit"]
