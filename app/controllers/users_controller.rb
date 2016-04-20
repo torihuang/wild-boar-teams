@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   # before_action :authenticate!
 
   def index
-    puts "IN THE INDEX"
     @users = User.all
   end
 

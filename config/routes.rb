@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :students, only: [:index, :import, :show]
 
+  resource :master_pass, only: [:edit, :update]
+
   put "/teams/:team_id/students/:student_id" => "teams#update", as: "teams"
 
 end
