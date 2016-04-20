@@ -3,6 +3,10 @@
   src: font-url('hs.ttf');
 }
 
+.welcome {
+  background-image: url(image-path('background.jpg'));
+}
+
 body {
   margin: 0;
 }
