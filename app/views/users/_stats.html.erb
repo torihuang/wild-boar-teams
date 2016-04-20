@@ -8,6 +8,6 @@
 
   <section class='student-master-list'>
     <% @students.each do |student| %>
-      <%= render partial: '/students/summary', locals: {student: student} %>
+      <%= render partial: 'students/summary', locals: {student: student} %>
     <% end %>
   </section>

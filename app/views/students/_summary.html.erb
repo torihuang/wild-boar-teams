@@ -15,7 +15,7 @@
         <br><span><%= link_to "Remove Student Assignment", "#", class: 'add-student-button btn-success' %></span>
       <% end %>
     <% elsif !current_user.is_admin? && !current_user.has_student?(student) %>
-      <br><span><%= link_to "Add to my Team", "/teams/#{current_user.team.id}/students/#{student.id}", class: 'add-student-button btn btn-success' %></span>
+      <br><span><%= link_to "Add to my Team", "/students/#{student.id}/teams/#{current_user.team.id}", class: 'add-student-button btn btn-success' %></span>
     <% end %>
   </p>
 </section>
