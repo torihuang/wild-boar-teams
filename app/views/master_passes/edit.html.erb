@@ -10,11 +10,11 @@
 
   <h2>Create a Master Password for new teachers</h2>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :old_password %><br>
     <%= f.password_field :old_password %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
@@ -23,7 +23,7 @@
     <%= f.password_field :confirm_password %>
   </div>
   <div class="actions">
-    <%= f.submit "Change Master Password" %>
+    <%= f.submit "Change Master Password", class: "btn btn-default" %>
   </div>
 
 <% end %>
