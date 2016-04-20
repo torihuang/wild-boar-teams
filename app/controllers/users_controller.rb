@@ -13,6 +13,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
+    if request.xhr?
+      render partial: 'new'
+    end
   end
 
   def create
