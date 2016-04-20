@@ -1,21 +1,33 @@
 <section class='student-summary'>
   <h2 id='student-name'><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></h2>
-  <p>
-    <% if student.team %>
-      <span class='team-name'>Team <%=student.team.name.capitalize %></span>
-    <% else %>
-      <span class='team-name'>Team UNASSIGNED</span>
-    <% end %>
-    <span><%=student.gpa.round(1) %>/4.0</span>
-    <span><%=student.grade %></span>
-    <span><%=student.gender %></span>
-    <span><%=student.number_of_detentions %></span>
-    <% if current_user.is_admin? %>
-      <% if student.is_assigned? %>
-        <span><%= link_to "Remove Student Assignment", "#", class: 'add-student-button btn-success' %></span>
-      <% end %>
-    <% elsif !current_user.is_admin? && !current_user.has_student?(student) %>
-      <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/students/#{student.id}", class: 'add-student-button btn btn-success' %></span>
-    <% end %>
-  </p>
+
+  <table>
+    <tr>
+      <td class="team-name">
+        <% if student.team %>
+          <span class='team-name'>Team <%=student.team.name.capitalize %></span>
+        <% else %>
+          <span class='team-name'>Team UNASSIGNED</span>
+        <% end %>
+      </td>
+      <td class="student-info"><%=student.gpa.round(1) %>/4.0</td>
+      <td class="student-info"><%=student.grade %></td>
+      <td class="student-info"><%=student.gender %></td>
+      <td class="student-info"><%=student.number_of_detentions %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="center-button">
+          <% if current_user.is_admin? %>
+            <% if student.is_assigned? %>
+              <span><%= link_to "Remove Student Assignment", "#", class: 'add-student-button btn-success' %></span>
+            <% end %>
+          <% elsif !current_user.is_admin? && !current_user.has_student?(student) && current_user.team.allow_update(student)[0] == true %>
+            <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/students/#{student.id}", class: 'add-student-button btn btn-success' %></span>
+          <% else !current_user.is_admin? && !current_user.has_student?(student) && current_user.team.allow_update(student)[0] == false %>
+            <span class='btn btn-success unaddable'>?</span>
+          <% end %>
+      </td>
+    </tr>
+  </table>
 </section>

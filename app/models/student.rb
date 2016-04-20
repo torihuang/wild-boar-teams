@@ -12,7 +12,7 @@ class Student < ActiveRecord::Base
   belongs_to :team
   has_one :teacher, through: :team
 
-  require 'CSV'
+  require 'csv'
 
   def is_assigned?
     self.team_id != 0

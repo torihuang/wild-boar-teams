@@ -91,7 +91,7 @@ user10 = User.create!(
     image_path: Faker::Avatar.image
     )
 
-genders = ["male", "female", "other", "none"]
+genders = ["male", "male", "male", "male", "male", "male", "male", "male", "male", "female", "other", "none"]
 shirt_sizes = ["x-small", "small", "medium", "large", "x-large",]
 grades = ["Grade 9", "Grade 10", "Grade 11", "Grade 12"]
 food_allergies = ["none", "peanuts", "gluten", "dairy", "pork", "the forbidden fruit"]
@@ -130,3 +130,5 @@ team9 = user9.build_team(name: "coral")
 team9.save
 team10 = user10.build_team(name: "brick")
 team10.save
+
+MasterPass.create(password: "12345")
