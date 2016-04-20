@@ -1,8 +1,12 @@
   <p>
+  <% if @user.team.students.count > 0 %>
     <span>Email: <%= @user.email %></span><br>
     <span>Average GPA: <%= @user.team.average_gpa %></span><br>
     <span>Total Number of Detentions: <%= @user.team.number_of_detentions %></span><br>
     <span>Average Number of Detentions: <%= @user.team.average_detentions %></span>
+  <% else %>
+    <span>No statistics available - create a team first!</span>
+  <% end %>
   </p>
 
   <h1><%= @user.first_name %>'s Students</h1>
