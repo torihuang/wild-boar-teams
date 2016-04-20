@@ -26,8 +26,8 @@
 </div>
 
 
-<section class='student-list'>
-<% students.each do |student| %>
-  <%= render partial: 'summary', locals: {student: student} %>
-<% end %>
+<section class='student-master-list'>
+  <% students.each do |student| %>
+    <%= render partial: 'summary', locals: {student: student} %>
+  <% end %>
 </section>
