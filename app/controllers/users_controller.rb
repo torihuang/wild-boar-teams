@@ -8,13 +8,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @all_students = Student.all
     @current_user = User.find(session[:user_id])
     @students = @user.students
     if @user.role == "admin" && @current_user.role == "teacher"
       redirect_to @current_user
     end
-    @all_students = Student.all
-
   end
 
   def new
@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "yoo"
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'Your profile was successfully updated.'
