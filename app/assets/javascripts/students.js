@@ -19,6 +19,11 @@ $(document).ready(function() {
         $this.after(response);
       }
     })
+    .fail(function(jqxhr, status, errorThrown) {
+      console.log("")
+      $('#login-form').remove();
+      $this.after(jqxhr.responseText);
+    })
   })
 
   $('#register-button').on('click', function(event){
@@ -34,7 +39,36 @@ $(document).ready(function() {
       } else {
         $this.after(responseBody);
       }
+    })
+    .fail(function(jqxhr, status, errorThrown) {
+      $('#registration-form').remove();
+      $this.after(jqxhr.responseText);
+    })
+  })
 
+  $('#welcome-buttons').on('submit', '.register', function(event){
+    event.preventDefault();
+    var $this = $(this);
+    var $regForm = $this.find('.reg-form');
+    $.ajax({
+      method: 'POST',
+      url: '/users',
+      data: $(this).children("#registration-form").children("form").serialize(),
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+    })
+    .done(function(responseBody){
+      if ($this.parent().find('#registration-form').length > 0) {
+        $('#registration-form').remove();
+      } else {
+        $this.after(responseBody);
+      }
+    })
+    .fail(function(jqxhr, status, errorThrown) {
+      $('#registration-form').remove();
+      console.log(jqxhr);
+      console.log(status);
+      console.log(errorThrown);
+      $this.after(jqxhr.responseText);
     })
   })
 
