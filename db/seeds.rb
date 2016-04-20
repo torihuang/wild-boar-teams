@@ -130,3 +130,5 @@ team9 = user9.build_team(name: "coral")
 team9.save
 team10 = user10.build_team(name: "brick")
 team10.save
+
+MasterPass.create(password: "12345")
