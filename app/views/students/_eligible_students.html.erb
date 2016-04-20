@@ -21,13 +21,7 @@
     <table class="table-center">
       <tr>
         <td>
-          <% if current_user.is_admin? %>
-            <% if student.is_assigned? %>
-              <span><%= link_to "Remove Student Assignment", "#", class: 'add-student-button btn-success' %></span>
-            <% end %>
-            <!-- You're not the admin && you don't already have this student on your team 
-            && adding this student to your team wouldn't break the diversity rules -->
-          <% elsif current_user.has_student?(student) %>
+          <% if current_user.has_student?(student) %>
           <!-- nothing  -->
           <% elsif current_user.team.allow_update(student)[0] == true %>
             <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/students/#{student.id}", class: 'add-student-button btn btn-success' %></span>
