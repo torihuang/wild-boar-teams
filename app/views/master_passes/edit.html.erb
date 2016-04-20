@@ -1,0 +1,29 @@
+<%= form_for :master_pass, url: master_pass_path, method: :patch do |f| %>
+  <% if @errors %>
+    <div id="error_explanation">
+      <% @errors.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+
+    </div>
+  <% end %>
+
+  <h2>Create a Master Password for new teachers</h2>
+
+  <div class="field">
+    <%= f.label :old_password %><br>
+    <%= f.password_field :old_password %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :confirm_password %><br>
+    <%= f.password_field :confirm_password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Change Master Password" %>
+  </div>
+
+<% end %>

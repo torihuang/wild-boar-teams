@@ -19,4 +19,11 @@ $(document).ready(function() {
     })
   });
 
+  $('.student-list').on('click', '.unaddable', function() {
+    var $this = $(this);
+    var student_link = $this.closest("table").siblings("h2").children("a").attr("href")
+    var student_id = student_link.split('/')[2]
+    var teacher_link = $this.closest("section").closest("#main-container").children().children("nav").children("a:first-child").attr("href")
+    var teacher_id = teacher_link.split('/')[2]
+  });
 })

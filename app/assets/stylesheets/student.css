@@ -20,6 +20,17 @@
   margin: 30px auto;
 }
 
+.team-name {
+  width: 22%;
+}
+
+.student-info {
+  width: 12%;
+}
+
+.center-button {
+  text-align: center;
+}
 .add-student-button {
 
 }
