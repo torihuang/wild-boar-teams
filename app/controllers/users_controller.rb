@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     if @user.role == "admin" && @current_user.role == "teacher"
       redirect_to @current_user
     end
+    @all_students = Student.all
+
   end
 
   def new
