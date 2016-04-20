@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   $('#login-button').on('click', function(e) {
     e.preventDefault();
-    $this = $(this);
+    var $this = $(this);
     $.ajax({
       method: 'GET',
       url: '/session/new'
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
   $('#register-button').on('click', function(event){
     event.preventDefault();
-    $this = $(this);
+    var $this = $(this);
     $.ajax({
       method: 'GET',
       url: '/users/new'
@@ -39,7 +39,7 @@ $(document).ready(function() {
   })
 
   $('.add-student-button').on('click', function(e) {
-    e.preventDefault();   
+    e.preventDefault();
     var $this = $(this);
     $.ajax({
       type: "PUT",
@@ -48,8 +48,9 @@ $(document).ready(function() {
     })
     .done(function(response) {
       console.log(response);
-      var name = $this.parent().parent().parent().find('#student-name').text();
-      $parent = $this.parent().parent().parent()
+      var name = $this.parent().parent().parent().parent().parent().parent().find('#student-name').text();
+      var $parent = $this.parent().parent().parent().parent().parent().parent();
+      console.log("HERE")
       console.log($parent)
       $parent.replaceWith(response);
       alert(name + " was added to your team!");
