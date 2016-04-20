@@ -1,8 +1,8 @@
 <section id="registration-form">
-<%= form_for :user, url: users_path do |f| %>
-  <% if @errors %>
+<%= form_for :user, url: users_path, class: 'reg-form' do |f| %>
+  <% if errors %>
     <div id="error_explanation">
-      <% @errors.each do |message| %>
+      <% errors.each do |message| %>
         <p><%= message %></p>
       <% end %>
     </div>
@@ -29,7 +29,7 @@
     <%= f.password_field :master_password %>
   </div>
   <div class="actions">
-    <%= f.submit "Create New Teacher", class: "btn btn-default" %>
+    <%= f.submit "Create New Teacher", class: "register btn btn-default" %>
   </div>
 <% end %>
 </section>

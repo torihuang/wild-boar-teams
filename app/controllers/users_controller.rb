@@ -19,7 +19,8 @@ class UsersController < ApplicationController
     @user = User.new
 
     if request.xhr?
-      render partial: 'new'
+      @errors = []
+      render partial: 'new_user', locals: {errors: @errors}
     end
   end
 
@@ -34,10 +35,18 @@ class UsersController < ApplicationController
         new_team.save
         session[:user_id] = @user.id
         redirect_to @user
+      elsif request.xhr?
+        @errors = @user.errors.full_messages
+        status 422
+        render partial: 'new_user', locals: {errors: @errors}
       else
         @errors = @user.errors.full_messages
         render :new
       end
+    elsif request.xhr?
+      status 422
+      @errors = ["Could not verify master password. Please contact your administrator."]
+      render partial: 'new_user', locals: {errors: @errors}
     else
       @errors = ["Could not verify master password. Please contact your administrator."]
       render :new
