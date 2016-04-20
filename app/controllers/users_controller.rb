@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @current_user = User.find(session[:user_id])
     @students = @user.students
+    if @user.role == "admin" && @current_user.role == "teacher"
+      redirect_to @current_user
+    end
   end
 
   def new
