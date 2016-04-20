@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @students = @user.students
+    @all_students = Student.all
   end
 
   def new

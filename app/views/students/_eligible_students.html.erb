@@ -1,0 +1,48 @@
+<section class='eligible-students'>
+
+  <% if current_user.team.allow_update(student)[0] == true %>
+    <h2 id='student-name'><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></h2>
+
+    <table class="table-center">
+      <tr>
+        <td class="team-name">
+          <% if student.team %>
+            <span class='team-name'>Team <%=student.team.name.capitalize %></span>
+          <% else %>
+            <span class='team-name'>Team UNASSIGNED</span>
+          <% end %>
+        </td>
+        <td class="student-info"><%=student.gpa.round(1) %>/4.0</td>
+        <td class="student-info"><%=student.grade %></td>
+        <td class="student-info"><%=student.gender %></td>
+        <td class="student-info"><%=student.number_of_detentions %></td>
+      </tr>
+    </table>
+    <table class="table-center">
+      <tr>
+        <td>
+          <% if current_user.has_student?(student) %>
+          <!-- nothing  -->
+          <% elsif current_user.team.allow_update(student)[0] == true %>
+            <span><%= link_to "Add to my Team", "teams/#{current_user.team.id}/students/#{student.id}", class: 'add-student-button btn btn-success' %></span>
+            <!-- You're not the admin && you don't already have this student on your team 
+            && adding this student to your team WOULD break the diversity rules -->
+          <% else current_user.team.allow_update(student)[0] == false %>
+            <span class='btn btn-success unaddable'>?</span>
+          <% end %>
+        </td>
+      </table>
+      <table class="ineligibility">
+        <td>
+          <% if current_user.team.allow_update(student)[0] == false %>
+            <ul>
+            <% current_user.team.allow_update(student)[1].each do |problem| %>
+              <li><%= problem %></li>
+            <% end %>
+            </ul>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</section>
