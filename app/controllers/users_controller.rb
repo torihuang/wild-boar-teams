@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "yoo"
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'Your profile was successfully updated.'
