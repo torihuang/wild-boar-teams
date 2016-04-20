@@ -110,6 +110,8 @@ food_allergies = ["none", "peanuts", "gluten", "dairy", "pork", "the forbidden f
     )
 end
 
+
+
 team1 = user1.build_team(name: "red")
 team1.save
 team2 = user2.build_team(name: "orange")
@@ -130,5 +132,7 @@ team9 = user9.build_team(name: "coral")
 team9.save
 team10 = user10.build_team(name: "brick")
 team10.save
+adminteam = admin.build_team(name: "admin")
+adminteam.save
 
 MasterPass.create(password: "12345")

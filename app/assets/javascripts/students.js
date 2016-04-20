@@ -73,7 +73,7 @@ $(document).ready(function() {
   })
 
   $('.add-student-button').on('click', function(e) {
-    e.preventDefault();   
+    e.preventDefault();
     var $this = $(this);
     $.ajax({
       type: "PUT",
