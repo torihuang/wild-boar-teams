@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       redirect_to students_path
     else
       @errors = ["Invalid Credentials"]
-      render 'new'
+      render partial: 'login', locals: {errors: @errors}
     end
   end
 

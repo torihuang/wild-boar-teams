@@ -17,6 +17,8 @@ class TeamsController < ApplicationController
         render '422'
       end
     else
+      puts student_id
+      puts team_id 
       render '404'
     end
   end

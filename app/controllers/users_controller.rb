@@ -8,15 +8,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @students = @user.students
     @all_students = Student.all
+    @current_user = User.find(session[:user_id])
+    @students = @user.students
+    if @user.role == "admin" && @current_user.role == "teacher"
+      redirect_to @current_user
+    end
   end
 
   def new
     @user = User.new
 
     if request.xhr?
-      render partial: 'new'
+      @errors = []
+      render partial: 'new_user', locals: {errors: @errors}
     end
   end
 
@@ -31,10 +36,18 @@ class UsersController < ApplicationController
         new_team.save
         session[:user_id] = @user.id
         redirect_to @user
+      elsif request.xhr?
+        @errors = @user.errors.full_messages
+        status 422
+        render partial: 'new_user', locals: {errors: @errors}
       else
         @errors = @user.errors.full_messages
         render :new
       end
+    elsif request.xhr?
+      status 422
+      @errors = ["Could not verify master password. Please contact your administrator."]
+      render partial: 'new_user', locals: {errors: @errors}
     else
       @errors = ["Could not verify master password. Please contact your administrator."]
       render :new
@@ -46,6 +59,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "yoo"
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'Your profile was successfully updated.'

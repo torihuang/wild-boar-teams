@@ -1,5 +1,5 @@
 <section id="registration-form">
-<%= form_for :user, url: users_path do |f| %>
+<%= form_for :user, url: users_path, name: "reg-form" do |f| %>
   <% if @errors %>
     <div id="error_explanation">
       <% @errors.each do |message| %>
