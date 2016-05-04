@@ -1,28 +1,16 @@
-== README
+# Client Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web app was created by a team of Dev Bootcamp Students. The project was given to us by a teacher posing as a client. This 'client' was a high school teacher looking for a way to easily organize students within the school. With this web app, each teacher in the school had a group of students they can easily edit or add to at any time. Our algorithms ensure that each group of students are diverse in terms of gender and GPA.
 
-Things you may want to cover:
+Each teacher has their own profile page, where they can find an overview of total number of detentions and overall group GPA. Each student also has their own summmary page. Teachers can see a list of all students, or a list of all teacher.
 
-* Ruby version
+One of the most important features is our administrator. The admin has the power to remove students from a group. The admin can also assign a master password that allows new teachers to register for an account.
 
-* System dependencies
+To find out more, checkout our
+[Heroku App](http://wild-boar-high-school.herokuapp.com/)
 
-* Configuration
+## Team
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+<a href='https://github.com/torihuang'>Tori Huang</a> | <a href='https://github.com/zabarton'>Zach Barton</a>
+:---: | :---:
+ **<a href='https://github.com/byronbenjamin'>Byron Benjamin</a>**| **<a href='https://github.com/heath3conk'>Heather Conklin</a>**
