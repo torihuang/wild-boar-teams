@@ -14,3 +14,11 @@ To find out more, checkout our
 <a href='https://github.com/torihuang'>Tori Huang</a> | <a href='https://github.com/zabarton'>Zach Barton</a>
 :---: | :---:
  **<a href='https://github.com/byronbenjamin'>Byron Benjamin</a>**| **<a href='https://github.com/heath3conk'>Heather Conklin</a>**
+
+## Home Page
+
+![Home Page](/app/assets/images/homepage.png)
+
+## Teacher Page
+
+![Teacher Page](/app/assets/images/teacher_page.png)
